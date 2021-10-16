@@ -2,19 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {RoutingIndex} from "./routing/RoutingIndex";
-import ToggleColorMode from "./theme/ToggleColorMode";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-
+import CustomContextHelper from "./helpers/CustomContextHelper";
+import {Provider} from "react-redux";
+import {store} from "./redux/store";
+import { LazyMotion, domAnimation } from "framer-motion"
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ToggleColorMode>
-      <RoutingIndex/>
-    </ToggleColorMode>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <LazyMotion features={domAnimation}>
+        <React.StrictMode>
+            <CustomContextHelper>
+                <RoutingIndex/>
+            </CustomContextHelper>
+        </React.StrictMode>
+        </LazyMotion>
+    </Provider>,
+    document.getElementById('root')
 );
 
 

@@ -6,13 +6,14 @@ import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        backgroundColor: "red"
     },
 }));
 export const RoutingIndex = () => {
     const classes = useStyles();
     const cRoutes = routes;
 
-    return <div class={"w-full h-full"}>
+    return <div class={"w-full"}>
         <Router>
             <Switch>
                 {cRoutes.map((route) => <Route key={route.key} path={route.path}>{route.component}</Route>)}

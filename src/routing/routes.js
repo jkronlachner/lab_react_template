@@ -1,5 +1,5 @@
 import DashboardTwoToneIcon from '@mui/icons-material/DashboardTwoTone';
-import {App} from "../pages/App";
+import App from "../pages/App";
 export const routes = [
     {
         path: "",
